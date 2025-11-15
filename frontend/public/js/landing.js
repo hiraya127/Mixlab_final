@@ -49,8 +49,8 @@ function initAuth() {
 
     } else {
       // --- USER IS NOT LOGGED IN ---
-      if (accountLink) accountLink.setAttribute('href', 'login.html');
-      if (mobileAccountBtn) mobileAccountBtn.setAttribute('href', 'login.html');
+      if (accountLink) accountLink.setAttribute('href', '/frontend/views/auth/login.html');
+      if (mobileAccountBtn) mobileAccountBtn.setAttribute('href', '/frontend/views/auth/login.html');
 
       // Hide notification bell
       const notifWrapper = document.getElementById("notif-wrapper");

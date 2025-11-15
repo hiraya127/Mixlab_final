@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking</title>
-  <link rel="stylesheet" href="booking.css">
+  <link rel="stylesheet" href="/frontend/public/css/">
 </head>
 <body class="booking-page">
 
@@ -21,6 +21,15 @@
           <!-- Address -->
           <label for="address">Address</label>
           <input id="address" name="address" placeholder="Home / Billing address" />
+
+          <!-- Service Type -->
+          <label for="serviceType">Service Type</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="">Select service</option>
+            <option value="music_lesson">Music Lesson</option>
+            <option value="recording">Recording</option>
+            <option value="rehearsal">Rehearsal</option>
+          </select>
 
           <!-- Date -->
           <label for="date">Date</label>

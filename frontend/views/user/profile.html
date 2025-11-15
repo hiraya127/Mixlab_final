@@ -5,47 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile - MixLab</title>
   <link rel="stylesheet" href="/frontend/public/css/profile.css" />
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-************"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="topbar">
-      <div>
-        <h1 id="displayName">Profile</h1>
-        <div id="email" class="muted"></div>
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="/frontend/public/landing.html" class="btn" style="padding: 8px 12px; font-size: 1.2rem;">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1>Profile</h1>
       </div>
-      <div>
-        <a id="backHome" class="btn" href="/frontend/public/landing.html">Back</a>
-        <button id="profileLogout" class="btn" style="margin-left:8px;">Logout</button>
+      <div class="topbar-actions desktop-only">
+        <button id="profileLogout" class="btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
       </div>
     </div>
 
-    <div class="card">
-      <h2>Courses Enrolled</h2>
-      <p class="muted">(placeholder - show enrolled courses here)</p>
-      <ul id="coursesList" class="list">
-        <li>• Intro to Recording (placeholder)</li>
-        <li>• Mixing Basics (placeholder)</li>
-      </ul>
-    </div>
+    <div class="profile-layout">
+      <!-- Profile & Personal Info Section (LEFT) -->
+      <div class="gamification-section">
+        <!-- Profile Header -->
+        <div class="card profile-header">
+          <div class="avatar-circle" id="userAvatar">M</div>
+          <div class="user-name" id="userName">MixLab User</div>
+          <div class="user-level" id="userLevel">Level 5 - Rising Producer</div>
+          
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-value" id="totalPoints">2,450</span>
+              <span class="stat-label"><i class="fa-solid fa-coins"></i> Total Points</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-value" id="totalBadges">8/15</span>
+              <span class="stat-label"><i class="fa-solid fa-award"></i> Badges</span>
+            </div>
+          </div>
+          
+          <div class="progress-bar">
+            <div class="progress-fill" id="levelProgress" style="width: 60%"></div>
+          </div>
+          <div style="margin-top: 5px; font-size: 0.85rem; color: var(--text-muted);">
+            1,550 XP to next level
+          </div>
+        </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Statistics</h3>
-        <p class="muted">Account statistics for current user</p>
-        <ul class="list">
-          <li>Sessions booked: <strong id="statSessions">0</strong></li>
-          <li>Hours recorded: <strong id="statHours">0</strong></li>
-          <li>Completed courses: <strong id="statCourses">0</strong></li>
-        </ul>
+        <!-- Personal Information -->
+        <div class="card">
+          <h3 class="section-title"><i class="fa-solid fa-user"></i> Personal Information</h3>
+          <div class="info-group">
+            <div class="info-label">Full Name</div>
+            <div class="info-value" id="fullName">John Doe</div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">Username</div>
+            <div class="info-value" id="username">mixmaster_john</div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">Email</div>
+            <div class="info-value" id="email">john.doe@example.com</div>
+          </div>
+          <div class="info-group">
+            <div class="info-label">Contact Number</div>
+            <div class="info-value" id="contact">+1 (555) 123-4567</div>
+          </div>
+        </div>
+
+        <!-- Notification Preferences -->
+        <div class="card">
+          <h3 class="section-title"><i class="fa-solid fa-bell"></i> Notification Preferences</h3>
+          <div id="notificationToggles">
+            <!-- Toggles will be populated by JS -->
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Games Played History</h3>
-        <p class="muted">Recent activity & game results (placeholder)</p>
-        <ul id="gamesList" class="list">
-          <li>• Rhythm Champ - Score: 850 (placeholder)</li>
-          <li>• Ear Training - Score: 720 (placeholder)</li>
-        </ul>
+      <!-- Gamification Section (RIGHT) -->
+      <div class="personal-section">
+        <!-- Badges -->
+        <div class="card">
+          <h3 class="section-title"><i class="fa-solid fa-trophy"></i> Badges Collection</h3>
+          <div class="badges-grid" id="badgesGrid">
+            <!-- Badges will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="card">
+          <h3 class="section-title"><i class="fa-solid fa-bullseye"></i> Recent Achievements</h3>
+          <div class="achievements-list" id="achievementsList">
+            <!-- Achievements will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Booking History -->
+        <div class="card">
+          <h3 class="section-title"><i class="fa-solid fa-list"></i> Booking History</h3>
+          <div class="history-list" id="bookingHistory">
+            <!-- History will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Mobile Logout Button -->
+        <div class="card mobile-only" style="padding: 0; background: transparent; border: none;">
+          <button id="profileLogoutMobile" class="btn" style="width: 100%; padding: 15px;">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </div>
       </div>
     </div>
   </div>
